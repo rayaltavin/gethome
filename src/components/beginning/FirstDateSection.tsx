@@ -2,8 +2,7 @@ import { ArrowDownRight, MapPin } from "lucide-react";
 import { firstDateLocation, relationship } from "../../data/relationship";
 import RevealSection from "../layout/RevealSection";
 
-const firstDateImage =
-  "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1500&q=85";
+const firstDateImage = "/photos/photo%202.jpg";
 
 export default function FirstDateSection() {
   return (
@@ -11,12 +10,12 @@ export default function FirstDateSection() {
       <div className="first-date-section__image">
         <img
           src={firstDateImage}
-          alt="Illustrative editorial photograph, not a personal relationship photo."
+          alt="The two of us smiling together under blue aquarium lights."
           loading="lazy"
-          width="1500"
-          height="1100"
+          width="1440"
+          height="810"
         />
-        <span className="photo-tag">An image for the first page</span>
+        <span className="photo-tag">A moment along the way</span>
       </div>
       <div className="first-date-section__copy">
         <div className="section-kicker">

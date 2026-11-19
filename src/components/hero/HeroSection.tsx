@@ -2,8 +2,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { relationship } from "../../data/relationship";
 
-const heroImage =
-  "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=85";
+const heroImage = "/photos/photo%201.JPG";
 
 export default function HeroSection() {
   const prefersReducedMotion = useReducedMotion();
@@ -64,7 +63,7 @@ export default function HeroSection() {
               <img
                 className="hero__image"
                 src={heroImage}
-                alt="Illustrative editorial photograph, not a personal relationship photo."
+                alt="A quiet moment together, smiling as we lie side by side."
                 fetchPriority="high"
               />
               <div className="hero__image-shade" aria-hidden="true" />

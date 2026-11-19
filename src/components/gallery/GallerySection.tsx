@@ -1,16 +1,7 @@
 import { useState } from "react";
-import PhotoAlbum from "react-photo-album";
-import type { Photo } from "react-photo-album";
-import { galleryImages } from "../../data/gallery";
+import { featuredMemories, galleryImages, sharedMoments } from "../../data/gallery";
 import GalleryLightbox from "./GalleryLightbox";
 import RevealSection from "../layout/RevealSection";
-
-type AlbumPhoto = Photo & { id: string };
-const photos: AlbumPhoto[] = galleryImages.map((image, index) => ({
-  ...image,
-  title: image.caption,
-  label: `View image ${index + 1}: ${image.caption}`,
-}));
 
 export default function GallerySection() {
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -30,20 +21,45 @@ export default function GallerySection() {
             <em>the little things.</em>
           </h2>
         </div>
-        <p>
-          A few editorial images set the mood for this page; the words stay with the dates and
-          moments we know.
-        </p>
+        <p>Four places with their own memories, followed by the many moments we shared.</p>
       </div>
-      <div className="gallery-album">
-        <PhotoAlbum
-          layout="masonry"
-          photos={photos}
-          columns={(width) => (width < 560 ? 2 : width < 900 ? 2 : 3)}
-          spacing={14}
-          onClick={({ index }) => setActiveIndex(index)}
-        />
+
+      <div className="gallery-section__featured">
+        {featuredMemories.map((image, index) => (
+          <button
+            className="gallery-featured-card"
+            key={image.id}
+            type="button"
+            aria-label={`View featured moment ${index + 1}: ${image.caption}`}
+            onClick={() => setActiveIndex(index)}
+          >
+            <span className="gallery-featured-card__image">
+              <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+            </span>
+            <span className="gallery-featured-card__index">Featured moment · 0{index + 1}</span>
+            <span className="gallery-featured-card__caption">{image.caption}</span>
+          </button>
+        ))}
       </div>
+
+      <div className="gallery-section__moments-heading">
+        <h3>Moments together</h3>
+        <span>{sharedMoments.length} photographs</span>
+      </div>
+      <div className="gallery-album gallery-moments-grid">
+        {sharedMoments.map((image, index) => (
+          <button
+            className="gallery-moments-grid__item"
+            key={image.id}
+            type="button"
+            aria-label={`View shared moment ${index + 1}`}
+            onClick={() => setActiveIndex(featuredMemories.length + index)}
+          >
+            <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+          </button>
+        ))}
+      </div>
+
       <GalleryLightbox
         images={galleryImages}
         index={activeIndex}

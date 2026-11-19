@@ -15,7 +15,8 @@ A personal relationship memory website built with React, TypeScript, Vite, Tailw
 
 - `src/data/relationship.ts` is the source of truth for the important dates.
 - `src/data/timeline.ts` contains the three known milestones.
-- `src/data/gallery.ts` contains editorial stock images and captions used for atmosphere, not as personal photographs.
+- `public/photos/` contains the relationship photos. The first four date photos are featured; `photo 1.JPG` and `photo 2.jpg` replace the default images in the hero and first-date sections and remain in the shared-moments gallery; other JPG, JPEG, PNG, and WebP files are included as shared moments.
+- `src/data/gallery.ts` contains the featured captions and gallery descriptions. The photo manifest is regenerated automatically before development and production builds.
 - `src/data/reflections.ts` contains the short reflections.
 - The first-date narrative, reflection, and closing letter are already written in their respective components.
 
