@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        const param = new URLSearchParams(window.location.search).get("scoutTheme");
+        const theme =
+          param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <meta name="theme-color" content="#641E32" />
+    <meta
+      name="description"
+      content="A little digital scrapbook of memories, moments, and a story that will always mean something."
+    />
+    <meta property="og:title" content="Can I Get Home Now Bebe? — Our Little Story" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="A little digital scrapbook of memories, moments, and a story that will always mean something."
+    />
+    <meta property="og:image" content="/og-image.svg" />
+    <title>Can I Get Home Now Bebe? — Our Little Story</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
